@@ -1,0 +1,20 @@
+name: T7 - Job-level reusable workflow with full 40-char SHA
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  preflight:
+    uses: qualcomm/qcom-reusable-workflows/.github/workflows/reusable-qcom-preflight-checks-orchestrator.yml@679cc01079b0b47a4cac819f2adf814ff9b7fff0
+    with:
+      enable-semgrep-scan: false
+      enable-dependency-review: false
+      enable-repolinter-check: false
+      enable-copyright-license-check: false
+      enable-commit-email-check: false
+      enable-commit-msg-check: false
+      enable-armor-checkers: false
+    permissions:
+      contents: read
+      security-events: write
